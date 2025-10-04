@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificaciones del Artista</title>
+    <script>
+        async function cargarMensajes() {
+            let resp = await fetch("/api/mensajes");
+            let data = await resp.json();
+            let lista = document.getElementById("lista");
+            lista.innerHTML = "";
+            if (data.mensajes.length > 0) {
+                data.mensajes.forEach(m => {
+                    let li = document.createElement("li");
+                    li.textContent = m;
+                    lista.appendChild(li);
+                });
+            } else {
+                let li = document.createElement("li");
+                li.textContent = "No hay mensajes aún.";
+                lista.appendChild(li);
+            }
+        }
+        setInterval(cargarMensajes, 3000); // cada 3 segundos
+        window.onload = cargarMensajes;
+    </script>
+</head>
+<body>
+    <h1>📩 Notificaciones de Clientes</h1>
+    <ul id="lista"></ul>
+</body>
+</html>

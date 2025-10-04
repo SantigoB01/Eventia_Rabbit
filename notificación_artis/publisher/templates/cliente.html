@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cliente - Solicitud</title>
+</head>
+<body>
+  <h1>Solicitar Artista</h1>
+  <form action="/send" method="POST">
+    <label>Tu nombre:</label><br>
+    <input type="text" name="cliente" required><br><br>
+
+    <label>Artista:</label><br>
+    <input type="text" name="artista" required><br><br>
+
+    <label>Fecha:</label><br>
+    <input type="date" name="fecha" required><br><br>
+
+    <button type="submit">Enviar solicitud</button>
+  </form>
+</body>
+</html>
